@@ -8,7 +8,7 @@ import {Container, Input, Title, Button, ButtonText, Text} from './styles';
 const Login = () => {
   const [validate, setValidate] = useState();
 
-  const {loginUser, logged} = useAuth(); // pega os valores passados no context do provider
+  const {loginUser} = useAuth(); // pega os valores passados no context do provider
 
   // console.log(logged);
 
@@ -17,6 +17,7 @@ const Login = () => {
       await loginUser(credentials);
     } catch (error) {
       console.log(error);
+      console.log(error.response.data);
       setValidate('Email e/ou senha inválidos');
     }
   }

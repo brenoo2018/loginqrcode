@@ -6,7 +6,7 @@ export const Button = styled(RectButton)`
   background: #34cb79;
   border-radius: 12px;
   height: 50px;
-  margin: 0 20px 0 20px;
+  margin: 50px 20px 0 20px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
