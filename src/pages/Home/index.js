@@ -1,12 +1,14 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-// import { Container } from './styles';
+import {Button, ButtonText} from './styles';
 
 const Home = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <Button>
+        <ButtonText>Sair</ButtonText>
+      </Button>
     </View>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
 
 import HomeRoutes from './home.routes';
-import Login from './login.routes';
+import {useAuth} from '../contexts/authContext';
+
+import LoginRoutes from './login.routes';
 
 const Routes = () => {
-  return <Login />;
+  const {logged} = useAuth();
+
+  return logged ? <HomeRoutes /> : <LoginRoutes />;
 };
 
 export default Routes;

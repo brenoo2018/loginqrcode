@@ -7,7 +7,14 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
+  color: #34cb79;
   font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 30px;
+`;
+
+export const Text = styled.Text`
+  color: #ff0000;
   font-weight: bold;
   margin-bottom: 30px;
 `;
@@ -36,3 +43,5 @@ export const ButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
 `;
+
+export const ActivityIndicator = styled.ActivityIndicator``;
