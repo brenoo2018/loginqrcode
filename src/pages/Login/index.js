@@ -1,13 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 
-// import { Container } from './styles';
+import {Container, Input, Title, Button, ButtonText} from './styles';
 
 const Login = () => {
   return (
-    <View>
-      <Text>Login</Text>
-    </View>
+    <Container>
+      <Title>Login</Title>
+      <Input placeholder="Usuário" />
+      <Input placeholder="Senha" secureTextEntry />
+
+      <Button onPress={() => {}}>
+        <ButtonText>Entrar</ButtonText>
+      </Button>
+    </Container>
   );
 };
 
