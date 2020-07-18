@@ -2,6 +2,7 @@ import React, {createContext, useContext, useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import {login} from '../services/auth';
+import api from '../services/api';
 
 const AuthContext = createContext({});
 
@@ -17,6 +18,12 @@ export const AuthProvider = ({children}) => {
 
     setUser(response.user);
 
+    /**
+     * envia automaticamente o token a cada requisição antes do login
+     */
+
+    api.defaults.headers.Authorization = `Bearer ${response.token}`;
+
     await AsyncStorage.setItem('@user', JSON.stringify(response.user));
     await AsyncStorage.setItem('@token', response.token);
     setLoading(false);
@@ -31,6 +38,11 @@ export const AuthProvider = ({children}) => {
       const storagedToken = await AsyncStorage.getItem('@token');
 
       if (storagedUser && storagedToken) {
+        /**
+         * envia automaticamente o token a cada requisição após o login
+         */
+        api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
+
         setUser(JSON.parse(storagedUser));
         setLoading(false);
       } else if (!storagedUser && !storagedToken) {
