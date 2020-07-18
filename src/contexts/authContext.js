@@ -13,7 +13,6 @@ export const AuthProvider = ({children}) => {
    * Faz a requisição e salva os dados no async storage
    */
   async function loginUser(credentials) {
-    setLoading(true);
     const response = await login(credentials);
 
     setUser(response.user);
@@ -53,7 +52,13 @@ export const AuthProvider = ({children}) => {
 
   return (
     <AuthContext.Provider
-      value={{logged: Boolean(user), user, loading, loginUser, logoutUser}}>
+      value={{
+        logged: Boolean(user),
+        user,
+        loading,
+        loginUser,
+        logoutUser,
+      }}>
       {children}
     </AuthContext.Provider>
   );

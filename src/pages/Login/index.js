@@ -12,23 +12,31 @@ const Login = () => {
 
   // console.log(logged);
 
-  async function handleLogin(credentials) {
-    try {
-      await loginUser(credentials);
-    } catch (error) {
-      console.log(error);
-      console.log(error.response.data);
-      setValidate('Email e/ou senha inválidos');
-    }
-  }
+  // async function handleLogin(credentials, {resetForm}) {
+  //   try {
+  //     await loginUser(credentials);
+  //   } catch (error) {
+  //     console.log(error);
+  //     console.log(error.response.data);
+  //     setValidate('Email e/ou senha inválidos');
+  //     resetForm({credentials: ''});
+  //   }
+  // }
 
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: (credentials) => {
-      handleLogin(credentials);
+    onSubmit: async (credentials, {resetForm}) => {
+      try {
+        await loginUser(credentials);
+      } catch (error) {
+        console.log(error);
+        console.log(error.response.data);
+        setValidate('Email e/ou senha inválidos');
+        resetForm({credentials: ''});
+      }
     },
   });
 
