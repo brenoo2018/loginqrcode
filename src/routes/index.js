@@ -12,7 +12,7 @@ const Routes = () => {
   if (loading) {
     return (
       <View style={styles.container}>
-        <ActivityIndicator size="large" color="#666" />
+        <ActivityIndicator size="large" color="#34cb79" />
       </View>
     );
   }

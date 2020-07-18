@@ -1,15 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 
-import {Button, ButtonText} from './styles';
+import {useAuth} from '../../contexts/authContext';
+import {Container, Title, Button, ButtonText} from './styles';
 
 const Home = () => {
+  const {logoutUser} = useAuth();
   return (
-    <View>
-      <Button>
+    <Container>
+      <Title>Home</Title>
+      <Button onPress={logoutUser}>
         <ButtonText>Sair</ButtonText>
       </Button>
-    </View>
+    </Container>
   );
 };
 
