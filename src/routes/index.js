@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
 
-import HomeRoutes from './home.routes';
 import {useAuth} from '../contexts/authContext';
 
 import LoginRoutes from './login.routes';
+import HomeRoutes from './home.routes';
+import PerfilRoutes from './perfil.routes';
+import RegisterRoutes from './register.routes';
 
 const Routes = () => {
   const {logged, loading} = useAuth();
@@ -17,7 +19,17 @@ const Routes = () => {
     );
   }
 
-  return logged ? <HomeRoutes /> : <LoginRoutes />;
+  return logged ? (
+    <>
+      <HomeRoutes />
+      <PerfilRoutes />
+    </>
+  ) : (
+    <>
+      <LoginRoutes />
+      <RegisterRoutes />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
